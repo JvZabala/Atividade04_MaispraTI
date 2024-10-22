@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site CIME</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <style>
+    
+        body {
+            a {
+                color: #f97316; /* laranja */
+            }
+
+            a:hover {
+                color: #ea580c; /* vermelho */
+            }
+
+            h2, h3 {
+                color: #f97316; /* laranja */
+            }
+        }
+        .site-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #f97316; /* laranja */
+            margin-left: 1rem;
+        }
+        .logo-title-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-section {
+            width: 100%;
+            position: relative;
+            padding: 0 100px;
+        }
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .carousel-item {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+        .carousel-item img {
+            border-radius: 2rem;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);            
+            color: #4a5568;                       
+            text-decoration: none;
+            font-size: 4rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .carousel-control.prev {
+            left: 0;
+        }
+        .carousel-control.next {
+            right: 0;
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background-color: #fff;
+        }
+        .rounded-card {
+            border-radius: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .rounded-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        .testimonials {
+            background-color: #f3f4f6;
+            padding: 4rem 0;
+            border-radius: 2rem;
+        }
+        .testimonial-card {
+        background-color: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-image {
+        width: 64px;
+        height: 64px;
+        border-radius: 2rem;
+        object-fit: cover;
+        margin-right: 1rem;
+    }
+
+    .testimonial-content {
+        font-style: italic;
+        color: #4b5563;
+    }
+
+    .testimonial-author {
+        font-weight: bold;
+        color: #1f2937;
+    }
+    
+        .section-padding {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .main-section {
+            font-family: cursive;
+            width: 70%;
+            padding-right: 2rem;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 85px;
+            width: 30%;
+            
+        }
+
+       </style>
+
+</head>
+<body class="font-sans">
+    <header class="bg-white shadow-md rounded-b-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3"> 
+            <div class="flex justify-between items-center">
+                <div class="logo-title-container">
+                    <img src="imagens/cimelogo.png" alt="Imagem 1" class="w-20 h-20 object-cover shadow-md rounded">
+                    <span class="site-title">Centro Integrado & Medicina do Exercício</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#Início" class="text-orange-500 hover:text-red-700">Início</a> 
+                    <a href="#Sobre" class="text-orange-500 hover:text-red-700">Sobre</a>
+                    <a href="#Serviços" class="text-orange-500 hover:text-red-700">Serviços</a>
+                    <a href="#Contato" class="text-orange-500 hover:text-red-700">Contato</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-700 hover:text-gray-900">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content container mx-auto px-6 py-8">
+        <section class="main-section">
+            <div class="carousel-section">
+                <a href="#" class="carousel-control prev">&lt;</a>
+                <div class="carousel-container">
+                    <div class="carousel-item active">
+                        <img src="imagens/cimefachada.jpg" alt="Imagem 1: Fachada" class="w-full h-96 object-cover shadow-md">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imagens/cimeacadadentro.png" alt="Imagem 2: Interiores" class="w-full h-96 object-cover shadow-md">        
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imagens/cimebonitao2.jpg" alt="Imagem 3: Exercícios" class="w-full h-96 object-cover shadow-md">
+                    </div>
+                    <div class="carousel-indicators">
+                        <span class="carousel-indicator active" data-index="0"></span>
+                        <span class="carousel-indicator" data-index="1"></span>
+                        <span class="carousel-indicator" data-index="2"></span>
+                    </div>
+                </div>
+                <a href="#" class="carousel-control next">&gt;</a>
+            </div>
+
+            <div class="section-padding">
+                <h2 class="text-2xl font-bold text-orange-600 mb-4">Nossos Serviços:</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-card shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Centro de Exercício</h3>
+                        <p class="text-gray-600">Contamos com uma gama enorme de equipamentos e ferramentas para proporcionar ao cliente a infraestrutura necessária para o seu treino.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-card shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Reabilitação Cardíaca</h3>
+                        <p class="text-gray-600">Temos uma equipe experiente de profissionais, contando com médicos e educadores físicos para auxiliarem em todas as etapas para a melhora do seu condicionamento físico e saúde.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-card shadow-md">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Fisioterapia</h3>
+                        <p class="text-gray-600">Também contamos com fisioterapeutas para tratar e reabilitar disfunções e lesões do movimento humano, utilizando técnicas terapêuticas para promover a saúde e bem-estar dos pacientes.</p>
+                    </div>
+          
+                </div>
+            </div>
+            <div class="bg-gray-100 p-6 rounded-card section-padding">
+                <h2 class="text-2xl font-bold text-orange-600 mb-4">Sobre Nós</h2>
+                <p class="text-gray-600 mb-4"> Possuindo quase 30 anos de mercado, o Cime é um centro do exercício compromissado em promover saúde e bem-estar para as pessoas com necessidades de reabilitação específicas e para aqueles que buscam condicionamento físico supervisionado como forma de prevenção.</p>
+                <p class="text-gray-600"> Sendo o Cime especializado em reabilitação cardíaca, muitas vezes, os clientes iniciam inseguros devido ao seu quadro de saúde, o cuidado, carinho e atenção da equipe são fundamentais para que se sintam seguros e acolhidos. Sendo assim, um dos principais diferenciais é o atendimento e a relação construída ao longo do tratamento de cada indivíduo.</p>
+            </div>
+        </div>
+        <div class="testimonials section-padding">
+            <h2 class="text-2xl font-bold text-orange-600 mb-8 text-center">Depoimentos Clientes:</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <img src="imagens/Walter_White_S5B.png" alt="Cliente 1" class="testimonial-image">
+                        <span class="testimonial-author">Walter White</span>
+                    </div>
+                    <p class="testimonial-content">"O CIME mudou minha vida! Após meu problema de saúde, pensei que nunca mais poderia me exercitar. A equipe me deu confiança e suporte para voltar a ser ativo."</p>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <img src="imagens/Foto Perfil.jpg" alt="Cliente 2" class="testimonial-image">
+                        <span class="testimonial-author">João Vitor Zabala</span>
+                    </div>
+                    <p class="testimonial-content">"A atenção personalizada e o conhecimento da equipe do CIME são incomparáveis. Minha recuperação foi muito mais rápida do que eu esperava."</p>
+                </div>
+            </div>
+        </div>
+                
+
+        </section>
+
+        <aside class="sidebar">
+            <div class="bg-white p-6 rounded-card shadow-md mb-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Notícias Saúde: </h3>
+                <ul class="space-y-2">
+                    <li><a href="https://sissaude.com.br/sis/inicial.php?case=2&idnot=13589" class="text-orange-500 hover:text-red-700"> Cime: Reabilitação cardíaca. </a></li>
+                    <li><a href="https://saude.abril.com.br/" class="text-orange-500 hover:text-red-700">Revista Veja: Saúde. </a></li>
+                    <li><a href="https://www.gov.br/saude/pt-br" class="text-orange-500 hover:text-red-700">Saúde Brasil. </a></li>
+                </ul>
+            </div>
+            <div class="bg-white p-6 rounded-card shadow-md">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Contato Rápido</h3>
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nome:</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Mensagem:</label>
+                        <textarea id="message" name="message" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                    </div>
+                    <button type="submit" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Enviar</button>
+                </form>
+        </div>
+        
+           <img src="imagens/mirrored_combined_cimefundo.png" alt="Imagem em destaque" class=" sidebar-image rounded ">
+       </div>
+        </form>
+    </div>
+            
+        </aside>
+    </main>
+
+    <footer class="bg-gray-800 text-white rounded-t-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <p>&copy; 2024 Site Cime. Todos os direitos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // carrossel
+        $(document).ready(function() {
+            let currentIndex = 0;
+            const items = $('.carousel-item');
+            const indicators = $('.carousel-indicator');
+            const totalItems = items.length;
+
+            function showItem(index) {
+                items.removeClass('active');
+                items.eq(index).addClass('active');
+                indicators.removeClass('active');
+                indicators.eq(index).addClass('active');
+            }
+
+            $('.carousel-control.next').click(function(e) {
+                e.preventDefault();
+                currentIndex = (currentIndex + 1) % totalItems;
+                showItem(currentIndex);
+            });
+
+            $('.carousel-control.prev').click(function(e) {
+                e.preventDefault();
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                showItem(currentIndex);
+            });
+
+            // funcionalidade de clique nos indicadores
+            indicators.click(function() {
+                currentIndex = $(this).data('index');
+                showItem(currentIndex);
+            });
+            // depoimentos
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>
